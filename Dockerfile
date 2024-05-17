@@ -12,6 +12,7 @@ ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.ta
 RUN tar -xzvf openjdk-11.0.1_linux-x64_bin.tar.gz
 
 RUN tar -xzvf apache-tomcat-9.0.63.tar.gz
+
 RUN rm -rf apache-tomcat-9.0.63.tar.gz
 
 RUN rm -rf openjdk-11.0.1_linux-x64_bin.tar.gz
