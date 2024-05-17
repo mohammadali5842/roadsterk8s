@@ -1,33 +1,35 @@
 apiVersion: v1
-kind: Pod
+kind: pod
 metadata: 
-  name: roadsterpod
+  name: urotaxi-pod
+  labels:
+    version: 1.0
 spec:
   containers:
-    - name: roadster
-      image: techsriman/roadster:1.0
+    - name: urotaxi
+      image: techsriman/urotaxi:1.0
       ports:
         - name: tomcatport
           containerPort: 8080
           protocol: TCP
-      readinessProbe:
+      readinessProbe: 
         httpGet:
-          path: /roadster/actuator/health/readiness
+          path: roadster/actuator/health/readiness 
           port: 8080
-        initialDelaySeconds: 10
+        initialDelaySeconds: 5
         timeoutSeconds: 10
-        failureThreshold: 3
+        failureThreshold: 3  
       livenessProbe:
         httpGet:
-          path: /roadster/actuator/health/liveness
-          port: 8080
-        initialDelaySeconds: 10
+          path: roadster/actuator/health/liveness
+          port: 8080  
+        initialDelaySeconds: 5
         timeoutSeconds: 10
-        failureThreshold: 3      
+        failureThreshold: 3  
       resources:
-        requests:
+        requests: 
           cpu: "500m"
           memory: "512Mi"
         limits:
-          cpu: "1"  
+          cpu: "1"
           memory: "1024Mi"
