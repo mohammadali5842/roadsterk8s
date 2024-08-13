@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: roadster
-      image: techsriman/speed:1.0
+      image: techsriman/speed:4.0
       ports:
         - name: tomcatport
           containerPort: 8080
